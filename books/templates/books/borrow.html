@@ -1,0 +1,37 @@
+{% extends 'books/base.html' %}
+{% block title%}Borrow{% endblock %}
+
+{% block content %}
+
+<section class="container" style="margin-top: 6rem;">
+    <div class="container">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="card mb-3" style="max-width: 540px;border:none;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-sm-6 col-5">
+                            <img src="{{ book.image.url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-sm-6 col-lg-6 col-6">
+                            <div class="card-body ">
+                                <h5 class="card-title">{{book.name}}</h5>
+                                <p class="card-subtitle text-muted" style="font-size:13px;">by <span class="card-text">{{book.author}}</span></p>
+                                <!-- <p class="card-text">This is a wider card with supporting text below as a natural</p> -->
+                                                    
+                                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <form action=" {% url 'books:token' book.id %} " method="POST" class="mt-5">
+                    {% csrf_token %}
+                    <button class="btn text-light col-8  bg-cta">Request borrow</button>
+                </form>
+            </div>
+        </div>
+          
+    </div>
+
+</section>
+
+{% endblock %}

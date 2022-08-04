@@ -1,0 +1,40 @@
+{% extends 'books/base.html' %}
+{% block content %} 
+
+
+<section class="container" style="margin-top: 6rem;">
+   <h1>{{dept}}</h1> 
+
+   <div class="container pt-2">
+      <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+          {% for book in books %}
+
+          <div class="col-lg-4">
+              <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                      <div class="col-md-6 col-sm-6 col-5">
+                          <img src="{{ book.image.url }}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-sm-6 col-lg-6 col-6">
+                          <div class="card-body">
+                              <h5 class="card-title">{{book.name}}</h5>
+                              <p class="card-subtitle text-muted" style="font-size:13px;">by <span class="card-text">{{book.author}}</span></p>
+                              <!-- <p class="card-text">This is a wider card with supporting text below as a natural</p> -->
+                              {% if book.issued == True %}
+                              <a href="" class="btn btn-danger disabled mt-3">Borrowed</a>
+                              {% else %}
+                              <a href="{% url 'books:borrow' book_id=book.id %}" class="btn btn-success mt-5">Borrow</a>
+                              {% endif %}
+                              <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          {% endfor %}
+
+      </div>
+  </div>
+</section>
+{% endblock %}

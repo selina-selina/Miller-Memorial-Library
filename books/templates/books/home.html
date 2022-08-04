@@ -1,0 +1,56 @@
+{% extends 'books/base.html' %}
+{% block title%}Miller Memorial Library{% endblock %}
+
+
+{% block content %}
+
+<section class="bg-main text-light p-5 pt-lg-5 text-center text-sm-start" style="margin-top: 3rem; padding-bottom:4rem;"> 
+    <div class="container col-sm-6 d-sm-flex justify-content-center">
+        <form action="">
+            {% csrf_token %}
+        <div class="input-group rounded">
+        <input name="usersearch" type="search" class="form-control" placeholder="Search for book" aria-label="Search" aria-describedby="search-addon" />
+        <button class="input-group-text border-0" id="search-addon" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+    </div>
+</section>
+
+<section class="mx-3" style="margin-bottom:3rem ;">
+    <h3 class="mt-3 mx-3 mb-5">{{item}}</h3>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+            {% if query %}
+            {% for q in query %}
+
+            <div class="col-lg-4">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-sm-6 col-5">
+                            <img src="{{ q.image.url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-sm-6 col-lg-6 col-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{q.name}}</h5>
+                                <p class="card-subtitle text-muted mb-5" style="font-size:13px;">by <span class="card-text">{{q.author}}</span></p>
+                                <!-- <p class="card-text">This is a wider card with supporting text below as a natural</p> -->
+                                {% if q.issued == True %}
+                                <a href="" class="btn btn-danger disabled mt-5">Borrowed</a>
+                                {% else %}
+                                <a href="{% url 'books:borrow' book_id=q.id %}" class="btn btn-success mt-5">Borrow</a>
+                                {% endif %}
+                                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif%}
+
+        </div>
+    </div>
+</section>
+{% endblock %}

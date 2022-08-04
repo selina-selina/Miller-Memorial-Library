@@ -1,0 +1,22 @@
+{% extends 'books/base.html' %}
+{% block title %} Section {% endblock %}
+
+{% block content %} 
+
+<section class="container col-sm-6" style="margin-top:6rem ;">
+    <h2 class="mx-3">Sections</h2>
+    <div class="container text-left d-text-center flex justify-content-center">
+        
+        {% for sec in sections %}
+
+        <div class="container col-sm--6 col-12 card cursor-p p-3 my-1 d-flex flex-row align-items-center" style="border: none;">     
+            <i class="{{sec.icons}}"></i>
+            <a class="text-black mx-2" href="{% url 'books:sect' sec.id %}">{{sec}}</a>
+        </div>
+        {% endfor %}
+        
+    </div>
+
+</section>
+
+{% endblock %}

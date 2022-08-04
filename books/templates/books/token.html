@@ -1,0 +1,15 @@
+{% extends 'books/base.html' %}
+{% block content %} 
+
+<section class="container" style="margin-top: 8rem;">
+
+    
+<div class="container col-lg-6 offset-lg-3 d-flex flex-column align-items-center">   
+    <h3 class="">Your Request has been submitted</h3>
+    <div>Provide this borrow request Pin at checkout</div>
+    <div class="p-2 fs-4">{{token}}</div>
+</div>
+
+</section>
+
+{% endblock %}
