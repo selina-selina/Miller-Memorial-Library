@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-rx@7*r+*mzny5kd2@40uqag8cfvckiur%9+g$lktflwsab@1_d
 DEBUG = False
 
 #change this before host
-ALLOWED_HOSTS = ['433b-2409-4072-597-8549-c9a8-1c0-11a5-9670.in.ngrok.io','127.0.0.1','miller-memorial-library.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','miller-memorial-library.herokuapp.com']
 
 
 # Application definition
