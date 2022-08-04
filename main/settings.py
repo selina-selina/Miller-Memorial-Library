@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-rx@7*r+*mzny5kd2@40uqag8cfvckiur%9+g$lktflwsab@1_d
 DEBUG = False
 
 #change this before host
-ALLOWED_HOSTS = ['127.0.0.1','miller-memorial-library.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','miller-memorial-library.herokuapp.com','selina.pythonanywhere.com']
 
 
 # Application definition
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'main.main.urls'
+ROOT_URLCONF = 'main.urls'
 
 TEMPLATES = [
     {
